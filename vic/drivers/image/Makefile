@@ -57,7 +57,8 @@ MPIPATH = ${TRAVIS_MPIPATH}
 else ifeq (hydro-c1, $(shell hostname))
 MPIPATH = /usr/local/netcdf-4.3.0+gcc-4.7.2
 else ifeq ($(UNAME_S), Linux)
-MPIPATH = /usr
+#MPIPATH = /usr
+MPIPATH = /usr/lib64/openmpi
 else
 MPIPATH = /opt/local
 endif
@@ -69,7 +70,9 @@ SHELL = /bin/bash
 ifeq (true, ${TRAVIS})
 CC = ${MPIPATH}/bin/mpicc
 else ifeq ($(UNAME_S), Linux)
-CC = /usr/lib64/mpich/bin/mpicc
+#CC = /usr/lib64/mpich/bin/mpicc
+#CC = gcc
+CC = ${MPIPATH}/bin/mpicc
 else
 CC = mpicc
 endif

@@ -67,9 +67,11 @@ initialize_mpi(void)
 
     // set mpi error handling
     MPI_Errhandler_set(MPI_COMM_VIC, MPI_ERRORS_RETURN);
+    //MPI_COMM_SET_ERRHANDLER(MPI_COMM_VIC, MPI_ERRORS_RETURN);
 
     // set mpi error handling
     MPI_Errhandler_set(MPI_COMM_VIC, MPI_ERRORS_RETURN);
+    //MPI_COMM_SET_ERRHANDLER(MPI_COMM_VIC, MPI_ERRORS_RETURN);
 
     status = MPI_Comm_size(MPI_COMM_VIC, &mpi_size);
     check_mpi_status(status, "MPI Error");
